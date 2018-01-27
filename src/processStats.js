@@ -55,11 +55,13 @@ const createAssetsStats = function (settings) {
         ':white_check_mark:'
     );
 
-    const majorAssetsTemplate = assetStatsFormatter.format(
-        majorAssets,
-        settings.templates.majorChangedAssets,
-        ':exclamation:', ':exclamation:',
-    );
+    const majorAssetsTemplate = majorAssets.length > 0 ?
+        assetStatsFormatter.format(
+            majorAssets,
+            settings.templates.majorChangedAssets,
+            ':exclamation:', ':exclamation:',
+        ) :
+        '';
 
     const headerTemplate = templateFormatter.format(settings.templates.header);
 
