@@ -5,8 +5,8 @@ const path = require('path');
 const fs = require('fs');
 
 const assetMapper = require('./mappers/assetsMapper');
-const assetStatsFormatter = require('./templateFormatters/assetStatsFormatter');
-const templateFormatter = require('./templateFormatters/templateFormatter');
+const assetStatsFormatter = require('./templates/assetStatsFormatter');
+const templateFormatter = require('./templates/templateFormatter');
 
 const getAssetsFromFile = function (workingDir, file) {
     const filePath = path.resolve(workingDir, file);
