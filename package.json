@@ -1,8 +1,11 @@
 {
   "name": "stats-webpack-markdown",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CLI utility that compares two bundle contents and represents the diff results as a Markdown document",
   "main": "src/index.js",
+  "bin": {
+    "stats-webpack-markdown": "src/index.js"
+  },
   "repository": "https://github.com/monkey3310/stats-webpack-markdown.git",
   "author": "Maciej Malkowski <maciej.malkowski@agoda.com>",
   "license": "MIT",
