@@ -3,6 +3,7 @@
 
 const program = require('commander');
 const statsFileValidator = require('./inputValidators/statsFileValidator');
+const pathMapper = require('./fileHelpers/pathMapper');
 const processStats = require('./processStats');
 const defaultSettings = require('./settings');
 
@@ -17,6 +18,7 @@ program
     .option('--oldStats <items>', 'Path to stats.json files containing base stats to compare with (comma separated)', list)
     .option('--newStats <items>', 'Path to stats.json files containing new stats that are being compared with old ones (comma separated)', list)
     .option('--percentageThreshold <n>', 'Value indicating %diff above which asset chance is considered significant', parseFloat, 5)
+    .option('--filterOnlyChanged', 'Reports only the assets that have changed', false)
     .option('--majorChangesText [value]', 'Text to be appended to report when major bundle changes are detected', '')
     .parse(process.argv);
 
@@ -28,11 +30,12 @@ try {
         defaultSettings,
         {
             outputFile: program.outputFile,
-            oldStats: program.oldStats,
-            newStats: program.newStats,
+            oldStats: pathMapper.mapPaths(process.cwd(), program.oldStats),
+            newStats: pathMapper.mapPaths(process.cwd(), program.newStats),
             percentageThreshold: program.percentageThreshold,
+            filterOnlyChanged: program.filterOnlyChanged,
             majorChangesText: program.majorChangesText,
-            currentWorkingDirectory: process.cwd(),
+            outputPath: pathMapper.mapOutputPath(process.cwd(), program.outputFile)
         },
     );
     processStats.createAssetsStats(settings);

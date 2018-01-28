@@ -25,5 +25,6 @@ const format = function(stats, template, emojiChanged, emojiSame, text) {
 };
 
 module.exports = {
-    format
+    format,
+    formatRow
 };

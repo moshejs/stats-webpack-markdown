@@ -1,13 +1,4 @@
 {
-  "outputFile": "stats.MD",
-  "oldStats": [
-    "old-stats.json"
-  ],
-  "newStats": [
-    "new-stats.json"
-  ],
-  "percentageThreshold": 5,
-  "majorChangesText": "",
   "templates": {
     "header": "header.MD",
     "assetsStats": "assetsStats.MD",
