@@ -9,11 +9,7 @@ const getAssetsFromFile = function (file) {
 };
 
 const getAssets = function (files) {
-    const assetsArray = [];
-    files.forEach(f => {
-        assetsArray.push(getAssetsFromFile(f));
-    });
-    return _.assign.apply(Object, assetsArray);
+    return _.assign.apply(Object, files.map(file => getAssetsFromFile(file)));
 };
 
 const getAssetsLists = function(oldStatFiles, newStatsFiles) {
@@ -24,19 +20,14 @@ const getAssetsLists = function(oldStatFiles, newStatsFiles) {
 };
 
 const getAssetsStats = function(oldStatsFiles, newStatsFiles) {
-    const stats = [];
-
     const assets = getAssetsLists(oldStatsFiles, newStatsFiles);
 
     const assetsNames = _.union(Object.keys(assets.oldAssets), Object.keys(assets.newAssets));
 
-    assetsNames.forEach(a => {
-        const sizeStats = assetMapper.mapStatsComparison(assets.oldAssets[a], assets.newAssets[a]);
-        const assetStats = Object.assign({}, {name: a,}, sizeStats);
-        stats.push(assetStats);
+    return assetsNames.map(name => {
+        const sizeStats = assetMapper.mapStatsComparison(assets.oldAssets[name], assets.newAssets[name]);
+        return Object.assign({}, {name: a,}, sizeStats);
     });
-
-    return stats;
 };
 
 module.exports = {
