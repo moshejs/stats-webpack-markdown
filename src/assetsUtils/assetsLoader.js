@@ -26,7 +26,7 @@ const getAssetsStats = function(oldStatsFiles, newStatsFiles) {
 
     return assetsNames.map(name => {
         const sizeStats = assetMapper.mapStatsComparison(assets.oldAssets[name], assets.newAssets[name]);
-        return Object.assign({}, {name: a,}, sizeStats);
+        return Object.assign({}, {name: (name),}, sizeStats);
     });
 };
 
