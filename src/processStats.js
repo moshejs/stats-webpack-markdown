@@ -30,6 +30,7 @@ const createAssetsStats = function (settings) {
             majorAssets,
             settings.templates.majorChangedAssets,
             ':exclamation:', ':exclamation:',
+            settings.majorChangesText
         ) :
         '';
 
