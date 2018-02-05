@@ -6,6 +6,9 @@
   "bin": {
     "stats-webpack-markdown": "src/index.js"
   },
+  "scripts": {
+    "test": "node node_modules/jest/bin/jest.js"
+  },
   "repository": "https://github.com/monkey3310/stats-webpack-markdown.git",
   "author": "Maciej Malkowski <maciej.malkowski@agoda.com>",
   "license": "MIT",
@@ -13,5 +16,8 @@
   "dependencies": {
     "commander": "2.13.0",
     "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "jest": "^22.1.4"
   }
 }

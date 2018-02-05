@@ -12,7 +12,7 @@ function list(val) {
 }
 
 program
-    .version('0.1.0')
+    .version('0.2.2')
     .description('CLI utility that compares two bundle contents and represents the diff results as a Markdown document')
     .option('--outputFile [path]', 'Filename for the generated report', 'stats.MD')
     .option('--oldStats <items>', 'Path to stats.json files containing base stats to compare with (comma separated)', list)
