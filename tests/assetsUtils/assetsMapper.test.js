@@ -1,4 +1,4 @@
-const assetsMapper = require('../../src/assetsUtils/assetsMapper')
+const assetsMapper = require('../../src/assetsUtils/assetsMapper');
 
 describe('assetsMapper', () => {
     describe('mapStatsComparison', () => {
@@ -44,7 +44,7 @@ describe('assetsMapper', () => {
                         size: 123
                     }
                 ]
-            }
+            };
             
             const result = assetsMapper.map(input);
 
@@ -60,7 +60,7 @@ describe('assetsMapper', () => {
                         size: 123
                     },
                 ]
-            }
+            };
             
             const result = assetsMapper.map(input);
 
@@ -81,7 +81,7 @@ describe('assetsMapper', () => {
                         size: 456
                     }
                 ]
-            }
+            };
             
             const result = assetsMapper.map(input);
 

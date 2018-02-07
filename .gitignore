@@ -2,3 +2,4 @@
 /node_modules/
 /stats.MD
 /WebPackStats/*
+/coverage/

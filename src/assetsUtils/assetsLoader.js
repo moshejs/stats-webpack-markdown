@@ -2,20 +2,12 @@
 
 const _ = require('lodash');
 const assetMapper = require('./assetsMapper');
-
-const getAssetsFromFile = function (file) {
-    const stats = require(file);
-    return assetMapper.map(stats);
-};
-
-const getAssets = function (files) {
-    return _.assign.apply(Object, files.map(file => getAssetsFromFile(file)));
-};
+const assetFileLoader = require('./assetsFileLoader');
 
 const getAssetsLists = function(oldStatFiles, newStatsFiles) {
     return {
-        oldAssets: getAssets(oldStatFiles),
-        newAssets: getAssets(newStatsFiles),
+        oldAssets: assetFileLoader.getAssets(oldStatFiles),
+        newAssets: assetFileLoader.getAssets(newStatsFiles),
     };
 };
 
@@ -31,8 +23,5 @@ const getAssetsStats = function(oldStatsFiles, newStatsFiles) {
 };
 
 module.exports = {
-    getAssetsFromFile,
-    getAssets,
-    getAssetsLists,
     getAssetsStats
 };
