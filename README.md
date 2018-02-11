@@ -1,5 +1,6 @@
 [![npm](https://img.shields.io/npm/v/stats-webpack-markdown.svg)](https://www.npmjs.com/package/stats-webpack-markdown)
 [![npm](https://img.shields.io/npm/dm/stats-webpack-markdown.svg)](https://www.npmjs.com/package/stats-webpack-markdown)
+[![Build Status](https://travis-ci.org/monkey3310/stats-webpack-markdown.svg?branch=master)](https://travis-ci.org/monkey3310/stats-webpack-markdown)
 # stats-webpack-markdown
 This CLI tool will take input of 2 [webpack stats](https://github.com/webpack/docs/wiki/node.js-api#stats) files and present difference between them as a markdown document, that could be used as part of your continuous integration process - for example by including it as a comment to the pull request in github.
 
