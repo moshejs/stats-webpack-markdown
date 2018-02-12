@@ -1,9 +1,9 @@
 language: node_js
 node_js:
   - "8"
-  env:
-    global:
-      - CC_TEST_REPORTER_ID=3923402e82773188cbfd27e2f0ec7d344338097f7582aa6e76246f268165fba5
+env:
+  global:
+    - CC_TEST_REPORTER_ID=3923402e82773188cbfd27e2f0ec7d344338097f7582aa6e76246f268165fba5
 install:
   - yarn install
 before_script:
