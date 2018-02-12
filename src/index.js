@@ -36,7 +36,7 @@ try {
             filterOnlyChanged: program.filterOnlyChanged,
             majorChangesText: program.majorChangesText,
             outputPath: pathMapper.mapOutputPath(process.cwd(), program.outputFile)
-        },
+        }
     );
     processStats.createAssetsStats(settings);
 

@@ -4,7 +4,7 @@ const _ = require('lodash');
 const assetsLoader = require('./assetsUtils/assetsLoader');
 const assetStatsFormatter = require('./templates/assetStatsFormatter');
 const templateFormatter = require('./templates/templateFormatter');
-const fs = require("fs");
+const fs = require('fs');
 
 const createAssetsStats = function (settings) {
     const assetStats = assetsLoader.getAssetsStats(settings.oldStats, settings.newStats)
@@ -12,11 +12,11 @@ const createAssetsStats = function (settings) {
 
     if (assetStats.length === 0) return; // don't generate report when there are no assets.
 
-    const sortedAssets = _.sortBy(assetStats, [(o) => { return Math.abs(o.pdiff) }]).reverse();
+    const sortedAssets = _.sortBy(assetStats, [(o) => { return Math.abs(o.pdiff); }]).reverse();
     const majorAssets = _.sortBy(
-                            assetStats.filter(o => Math.abs(o.pdiff) > settings.percentageThreshold),
-                            [(o) => { return Math.abs(o.pdiff) }])
-                        .reverse();
+        assetStats.filter(o => Math.abs(o.pdiff) > settings.percentageThreshold),
+        [(o) => { return Math.abs(o.pdiff); }])
+        .reverse();
 
     const allAssetsTemplate = assetStatsFormatter.format(
         sortedAssets,
