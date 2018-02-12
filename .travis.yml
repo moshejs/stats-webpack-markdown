@@ -1,14 +1,16 @@
 language: node_js
 node_js:
   - "8"
-env:
-  CODECLIMATE_REPO_TOKEN: 3923402e82773188cbfd27e2f0ec7d344338097f7582aa6e76246f268165fba5
+  env:
+    global:
+      - CC_TEST_REPORTER_ID=3923402e82773188cbfd27e2f0ec7d344338097f7582aa6e76246f268165fba5
 install:
   - yarn install
 before_script:
-  - npm install -g codeclimate-test-reporter
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 script:
   - yarn test
 after_success:
-  - codeclimate < ./coverage/lcov.info
-  
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT  
